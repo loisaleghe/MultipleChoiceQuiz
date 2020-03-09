@@ -1,6 +1,7 @@
 let score = 0
 let qIndex = 0
-let question = ''
+let question; // don't define question as a string , it is an object in your code
+let HscoreArray=[];//an array of object for the high score
 let MyQuestions = [
     {
         title: 'What is 2 + 2?',
@@ -12,7 +13,6 @@ let MyQuestions = [
         ],
         correctanswer: "4"
     },
-
     {
         title: 'What is 2 x 3?',
         answers: [
@@ -23,7 +23,6 @@ let MyQuestions = [
         ],
         correctanswer: "6"
     },
-
     {
         title: 'How many vowels are in Lois?',
         answers: [
@@ -34,7 +33,6 @@ let MyQuestions = [
         ],
         correctanswer: "2"
     },
-
     {
         title:'How many consonants are in Wendy?',
         answers: [
@@ -46,7 +44,6 @@ let MyQuestions = [
         correctanswer: "4"
     } 
     ];
-
     $(document).ready(function(){
         //event handler for what happens when the start button is clicked
         $('#startbutton').click(function(e){
@@ -55,34 +52,94 @@ let MyQuestions = [
             $('.questions-page').show()
             displayQuestions()
         })
-
-        $('#submit').click(function(){
+        function displayQuestions(){
+            //the condition is to ensure it iterates through each question until it gets to the last one 
+                if(qIndex < MyQuestions.length){
+                     question = MyQuestions[qIndex]
+                     $('.questions-page h2').text(question.title); //add the question to the question page
+                     $('.questions-page ul').html(''); //first clear the options page
+                     //loop through the array of options and add it to the list created for the options in the questions-page class
+                     for(let i=0; i< question.answers.length; i++){
+                        $('.questions-page ul').append("<li id='" + i + "'>" + question.answers[i] + "</li>");
+                   }
+                   qIndex++; //to iterate the index
+                }else{
+                    $('.questions-page').hide();
+                    $('#scoreVal').text(score)
+                    $('.score-page').show()
+                }
+            }
             
+            //This click is for when the user selects an option
+            $('.questions-page ul').on('click','li',function(){
+                $('.user-answer').removeClass('user-answer')
+                $(this).addClass('user-answer');
+            })
+            
+            //when they submit an answer
+            $('#submit').click(function(){
+                let userAnswer=$(".user-answer").text().slice(2).trim()
+                if (userAnswer==""){ //alert if user didnt choose an answer and submit
+                    alert("Please choose an answer")
+                } else { //check the user answer and jump to the next question 
+                    if(userAnswer===question.correctanswer){
+                    $('#status').text("correct")
+                    score++
+                    }else {
+                    $("#status").text("wrong")
+                    
+                    }
+                    displayQuestions();
+                }
+                
+            //this code contains what happens when they submit the form
+            $('#userInfo').on('submit', function(e){
+                e.preventDefault(); 
+                getHighScore()
+            })
+            })
+
+            $('#submitButton').click(function(e){//click on the restart link
+                e.preventDefault();
+                getHighScore();
+              })
+              
+              $('#startOver').click(function(e){//click on the restart link
+                e.preventDefault();
+                startOver();
+                score = 0;
+                qIndex = 0;
+              })
+              
+
+        
         })
 
-    })
+        function getHighScore(){
+            $('.HighScore').show()
+            $('.score-page').hide()
+            name = $('input#fname').val(); //to get the name of the user
+            let userData = {Player:name , playerScore: score} //store the code in the userData object
+            HscoreArray.push(userData) // push the object into the array
+            HscoreArray.sort((a,b) => b.score - a.score)
+            HscoreArray.splice(5) //to cut off after the first 5
+            //to store in local storage: store the highscore array
+            localStorage.setItem('Highscores', JSON.stringify(HscoreArray));
+            //get highscorelist and populate it with players hoghscore
+            let highscoresList = document.getElementById('highscoreList');
+            let Highscores = JSON.parse(localStorage.getItem("Highscores"))
+            console.log(Highscores)
+            highscoresList.innerHTML =(Highscores.map(playerStats =>{
+             return `<li class="HighScore"> ${playerStats.name} -  ${playerStats.score}</li>`;
+    }).join("")
+     );
+            console.log(highscoresList)
 
+        }
+
+        function startOver(){
+            $('.HighScore').hide()
+            $('.start-page').show()
+        }
+        
     
-
-    
-function displayQuestions(){
-//the condition is to ensure it iterates through each question until it gets to the last one 
-    if(qIndex < MyQuestions.length){
-         question = MyQuestions[qIndex]
-         $('.questions-page h2').text(question.title); //add the question to the question page
-         $('.questions-page ul').html(''); //first clear the options page
-         //loop through the array of options and add it to the list created for the options in the questions-page class
-         for(let i=0; i< question.answers.length; i++){
-            $('.questions-page ul').append("<li id='" + i + "'>" + question.answers[i] + "</li>");
-       }
-       qIndex++; //to iterate the index
-
-    }
-}
-
-//This click is for when the user selects an option
-$('.questions-page ul').on('click','li',function(){
-    $('.user-answer').removeClass('user-answer')
-    $(this).addClass('user-answer');
-})
-

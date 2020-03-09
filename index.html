@@ -23,17 +23,29 @@
             <li>d:</li>
         </ul>
         <button id="submit">Submit</button>
+        <hr>
+        <div id="status"></div>
 
     </div>
     
     <div class="HighScore">
-        <h2>HighScore</h2>
-        <a href="#"> </a>
-    
-
-    
-
+        <h2>HighScore Page</h2>
+        <hr>
+        <ul id='highscoreList'></ul>
+        <button type="button" class="btn btn-primary" id="startOver">Go Back</button>
     </div>
+
+    <div class="score-page">
+        <h2>Your Score is <span id="scoreVal"></span></h2>
+        <form id="userInfo">
+          <label for="fname"><strong>Initials:</strong></label
+          ><br /><br />
+          <input type="text" id="fname" name="fname" value="" /><br /><br />
+          <input type="submit" value="Submit"  id = "submitButton"/>
+        </form>
+      </div>
+
+     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"> 

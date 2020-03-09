@@ -13,3 +13,8 @@
 .user-answer {
     background-color: lightgrey
 }
+
+.score-page {
+    display: none;
+  }
+  
