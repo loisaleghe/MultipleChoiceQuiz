@@ -109,6 +109,7 @@ let MyQuestions = [
                 startOver();
                 score = 0;
                 qIndex = 0;
+                $("#status").text("")
               })
               
 
@@ -116,7 +117,7 @@ let MyQuestions = [
         })
 
         function getHighScore(){
-            $('.HighScore').show()
+            
             $('.score-page').hide()
             name = $('input#fname').val(); //to get the name of the user
             let userData = {Player:name , playerScore: score} //store the code in the userData object
@@ -127,19 +128,22 @@ let MyQuestions = [
             localStorage.setItem('Highscores', JSON.stringify(HscoreArray));
             //get highscorelist and populate it with players hoghscore
             let highscoresList = document.getElementById('highscoreList');
-            let Highscores = JSON.parse(localStorage.getItem("Highscores"))
-            console.log(Highscores)
-            highscoresList.innerHTML =(Highscores.map(playerStats =>{
-             return `<li class="HighScore"> ${playerStats.name} -  ${playerStats.score}</li>`;
-    }).join("")
-     );
-            console.log(highscoresList)
-
+            HscoreArray = JSON.parse(localStorage.getItem("Highscores"))
+    //         highscoresList.innerHTML =(HscoreArray.map(playerStats =>{
+    //          return `<li class="HighScore"> ${playerStats.Player} -  ${playerStats.playerScore}</li>`;
+    //       }).join(""));
+            $("#highscoreList").html("")
+            
+            HscoreArray.map(playerStats =>{
+               $("#highscoreList").append(`<li class="HighScore"> ${playerStats.Player} -  ${playerStats.playerScore}</li>`);
+          });
+          $('.HighScore').show()
         }
 
         function startOver(){
-            $('.HighScore').hide()
             $('.start-page').show()
+            $('.HighScore').hide()
+
         }
         
     
