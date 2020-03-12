@@ -72,6 +72,7 @@ $(document).ready(function() {
     } else {
       $(".questions-page").hide();
       $("#scoreVal").text(score);
+      $("#timer-container").addClass("d-none");
       $(".score-page").show();
     }
   }
@@ -136,9 +137,10 @@ $(document).ready(function() {
 });
 
 function getHighScore() {
-  // $('.score-page').hide()
   let HscoreArray = JSON.parse(localStorage.getItem("Highscores")); //an array of object for the high score
-
+    if (HscoreArray == null){
+        HscoreArray = []
+    }
   let name = $("input#fname").val(); //to get the name of the user
   let userData = { Player: name, playerScore: score }; //store the code in the userData object
 
@@ -149,5 +151,4 @@ function getHighScore() {
   localStorage.setItem("Highscores", JSON.stringify(HscoreArray));
   window.location.replace("highScore.html"); // to redirect to the html page
 
-  //   $('.HighScore').show()
 }
