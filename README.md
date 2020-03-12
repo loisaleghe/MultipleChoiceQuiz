@@ -1,6 +1,7 @@
 # MultipleChoiceQuiz
 Build a multiple choice quiz that is timed 
 
+```
 ## Details 
 1. The Webpage should have a timer 
 2. The timer should decrease by -5 if user enters the wrong answer 
@@ -17,9 +18,11 @@ Build a multiple choice quiz that is timed
 ## Final Output
 https://loisaleghe.github.io/MultipleChoiceQuiz/.
 
+```
 ## Screenshots
 
 ![The screenshot of one of the prompts](screenshot1.png)
 ![The screenshot of one of the prompts](screenshot2.png)
 ![The screenshot of one of the prompts](screenshot3.png)
 ![The screenshot of one of the prompts](screenshot4.png)
+
