@@ -18,3 +18,8 @@ Build a multiple choice quiz that is timed
 https://loisaleghe.github.io/MultipleChoiceQuiz/.
 
 ## Screenshots
+
+![The screenshot of one of the prompts](screenshot1.png)
+![The screenshot of one of the prompts](screenshot2.png)
+![The screenshot of one of the prompts](screenshot3.png)
+![The screenshot of one of the prompts](screenshot4.png)
