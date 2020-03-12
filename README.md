@@ -23,6 +23,6 @@ https://loisaleghe.github.io/MultipleChoiceQuiz/.
 
 ![The screenshot of one of the prompts](screenshot1.png)
 ![The screenshot of one of the prompts](screenshot2.png)
-![The screenshot of one of the prompts](screenshot3.png)
+![The screenshot of one of the prompts](Screenshot3.png)
 ![The screenshot of one of the prompts](screenshot4.png)
 
