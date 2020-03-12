@@ -15,14 +15,15 @@ Build a multiple choice quiz that is timed
 6. Should be able to view the scores of past attempts 
 7. Should be only see the top 5 scores 
 
-## Final Output
-https://loisaleghe.github.io/MultipleChoiceQuiz/.
 
 ```
 ## Screenshots
 
 ![The screenshot of one of the prompts](screenshot1.png)
 ![The screenshot of one of the prompts](screenshot2.png)
-![The screenshot of one of the prompts](screenshot3.png)
+![The screenshot of one of the prompts](Screenshot3.png)
 ![The screenshot of one of the prompts](screenshot4.png)
+
+## Final Output
+https://loisaleghe.github.io/MultipleChoiceQuiz/.
 
