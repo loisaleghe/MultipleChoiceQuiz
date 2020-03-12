@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="script.js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="script.js" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <div class="row">
+        <div class="col">
+          <!-- display the highscore page -->
+          <div class="float-left mr-3" id="highscore-link">
+            <a href="highScore.html">Highscore page</a>
+          </div>
+          <!-- display times left  -->
+          <div class="float-right mr-3 d-none" id="timer-container">
+            Time: <span id="time-left"></span>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="start-page">
-        <h1>WELCOME</h1>
-       <button id="startbutton">start</button>
-
+      <h1>WELCOME</h1>
+      <button id="startbutton" class="btn btn-success">start</button>
     </div>
 
     <div class="questions-page">
-        <h2>Question:</h2>
-        <ul>
-            <li>a:</li>
-            <li>b:</li>
-            <li>c:</li>
-            <li>d:</li>
-        </ul>
-        <button id="submit">Submit</button>
-        <hr>
-        <div id="status"></div>
-
-    </div>
-    
-    <div class="HighScore">
-        <h2>HighScore Page</h2>
-        <hr>
-        <ul id='highscoreList'></ul>
-        
-        <button type="button" class="btn btn-primary" id="startOver">Go Back</button>
+      <h2>Question:</h2>
+      <ul id="MCbuttons">
+        <li>
+          <button class="btn btn-primary btnClicked" id="0">a: option1</button>
+        </li>
+        <li>
+          <button class="btn btn-primary btnClicked" id="1">b: option2</button>
+        </li>
+        <li>
+          <button class="btn btn-primary btnClicked" id="2">c: option3</button>
+        </li>
+        <li>
+          <button class="btn btn-primary btnClicked" id="3">d: option4</button>
+        </li>
+      </ul>
+      <!-- <button id="submit">Submit</button>  -->
+      <hr />
+      <div id="status"></div>
     </div>
 
     <div class="score-page">
-        <h2>Your Score is <span id="scoreVal"></span></h2>
-        <form id="userInfo">
-          <label for="fname"><strong>Initials:</strong></label
-          ><br /><br />
-          <input type="text" id="fname" name="fname" value="" /><br /><br />
-          <input type="submit" value="Submit"  id = "submitButton"/>
-        </form>
-      </div>
+      <h2>Your Score is <span id="scoreVal"></span></h2>
+      <form id="userInfo">
+        <label for="fname"><strong>Initials:</strong></label
+        ><br /><br />
+        <input type="text" id="fname" name="fname" value="" /><br /><br />
+        <input type="submit" value="Submit" id="submitButton" />
+      </form>
+    </div>
 
-     
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"> 
-
-    </script>
-</body>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>

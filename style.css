@@ -1,20 +1,20 @@
-.questions-page, .HighScore{
-    display: none;
+.questions-page {
+  display: none;
 }
 
-.questions-page ul{
-    list-style: none;
+.questions-page ul {
+  list-style: none;
+  display: block;
 }
 
-.questions-page ul li{
-    cursor: pointer;
+.questions-page ul li {
+  cursor: pointer;
 }
 
 .user-answer {
-    background-color: lightgrey
+  background-color: lightgrey;
 }
 
 .score-page {
-    display: none;
-  }
-  
+  display: none;
+}
